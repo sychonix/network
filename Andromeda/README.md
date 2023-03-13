@@ -18,44 +18,34 @@ sudo apt -qy install curl git jq lz4 build-essential
 sudo apt -qy upgrade
 ```
 
-### Snapshot (Update every 5 hours)
+### Install Go
 ```
-sudo systemctl stop andromedad
-cp $HOME/.andromedad/data/priv_validator_state.json $HOME/.andromedad/priv_validator_state.json.backup
-rm -rf $HOME/.andromedad/data
-
-curl -L https://snapshots.kjnodes.com/andromeda-testnet/snapshot_latest.tar.lz4 | tar -Ilz4 -xf - -C $HOME/.andromedad
-
-mv $HOME/.andromedad/priv_validator_state.json.backup $HOME/.andromedad/data/priv_validator_state.json
-
-sudo systemctl start andromedad && sudo journalctl -fu andromedad -o cat
+sudo rm -rf /usr/local/go
+curl -Ls https://go.dev/dl/go1.19.7.linux-amd64.tar.gz | sudo tar -xzf - -C /usr/local
+eval $(echo 'export PATH=$PATH:/usr/local/go/bin' | sudo tee /etc/profile.d/golang.sh)
+eval $(echo 'export PATH=$PATH:$HOME/go/bin' | tee -a $HOME/.profile)
 ```
 
-### State Sync
+### **Download and build binaries**
 ```
-sudo systemctl stop andromedad
-cp $HOME/.andromedad/data/priv_validator_state.json $HOME/.andromedad/priv_validator_state.json.backup
-andromedad tendermint unsafe-reset-all --home $HOME/.andromedad
+# Clone project repository
+cd $HOME
+rm -rf andromedad
+git clone https://github.com/andromedaprotocol/andromedad.git
+cd andromedad
+git checkout galileo-3-v1.1.0-beta1
 
-STATE_SYNC_RPC=https://rpc.andromeda-t.nodexcapital.com:443
-STATE_SYNC_PEER=d5519e378247dfb61dfe90652d1fe3e2b3005a5b@andromeda-testnet.rpc.kjnodes.com:47656
-LATEST_HEIGHT=$(curl -s $STATE_SYNC_RPC/block | jq -r .result.block.header.height)
-SYNC_BLOCK_HEIGHT=$(($LATEST_HEIGHT - 2000))
-SYNC_BLOCK_HASH=$(curl -s "$STATE_SYNC_RPC/block?height=$SYNC_BLOCK_HEIGHT" | jq -r .result.block_id.hash)
+# Build binaries
+make build
 
-sed -i \
-  -e "s|^enable *=.*|enable = true|" \
-  -e "s|^rpc_servers *=.*|rpc_servers = \"$STATE_SYNC_RPC,$STATE_SYNC_RPC\"|" \
-  -e "s|^trust_height *=.*|trust_height = $SYNC_BLOCK_HEIGHT|" \
-  -e "s|^trust_hash *=.*|trust_hash = \"$SYNC_BLOCK_HASH\"|" \
-  -e "s|^persistent_peers *=.*|persistent_peers = \"$STATE_SYNC_PEER\"|" \
-  $HOME/.andromedad/config/config.toml
+# Prepare binaries for Cosmovisor
+mkdir -p $HOME/.andromedad/cosmovisor/genesis/bin
+mv build/andromedad $HOME/.andromedad/cosmovisor/genesis/bin/
+rm -rf build
 
-mv $HOME/.andromedad/priv_validator_state.json.backup $HOME/.andromedad/data/priv_validator_state.json
-
-curl -L https://snapshots.kjnodes.com/andromeda-testnet/wasm_latest.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.andromedad
-
-sudo systemctl start andromedad && sudo journalctl -u andromedad -f --no-hostname -o cat
+# Create application symlinks
+ln -s $HOME/.andromedad/cosmovisor/genesis $HOME/.andromedad/cosmovisor/current
+sudo ln -s $HOME/.andromedad/cosmovisor/current/bin/andromedad /usr/local/bin/andromedad
 ```
 
 ### Disable State Sync 
