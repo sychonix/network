@@ -131,16 +131,16 @@ sudo systemctl start andromedad && sudo journalctl -u andromedad -f --no-hostnam
 ```
 ### **Useful Commands**
 
-### Add new key
+### **Key management**
+Add new key
 ```
 andromedad keys add wallet
 ```
-
-### Recover existing key
+Recover existing key
 ```
 andromedad keys add wallet --recover
 ```
-### Export key to the file
+Export key to the file
 ```
 andromedad keys export wallet
 ```
