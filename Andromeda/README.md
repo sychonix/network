@@ -28,23 +28,27 @@ eval $(echo 'export PATH=$PATH:$HOME/go/bin' | tee -a $HOME/.profile)
 
 ### **Download and build binaries**
 ```
-<pre>
 # Clone project repository
 cd $HOME
 rm -rf andromedad
 git clone https://github.com/andromedaprotocol/andromedad.git
 cd andromedad
 git checkout galileo-3-v1.1.0-beta1
+```
 
 # Build binaries
+```
 make build
+```
 
 # Prepare binaries for Cosmovisor
+```
 mkdir -p $HOME/.andromedad/cosmovisor/genesis/bin
 mv build/andromedad $HOME/.andromedad/cosmovisor/genesis/bin/
 rm -rf build
-
+```
 # Create application symlinks
+```
 ln -s $HOME/.andromedad/cosmovisor/genesis $HOME/.andromedad/cosmovisor/current
 sudo ln -s $HOME/.andromedad/cosmovisor/current/bin/andromedad /usr/local/bin/andromedad
 </pre>
