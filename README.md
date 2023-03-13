@@ -28,7 +28,7 @@ List of Cosmos ecosystem projets with tutorial configured below
 | Quasar       | [Click Here](./quasar/README.md)        | 
 | Dymension       | [Click Here](./dymension/README.md)        | 
 | Babylon       | [Click Here](./babylon/README.md)        | 
-| Andromeda       | [Click Here](./andromeda/README.md)        | 
+| Andromeda       | [Click Here](./https://github.com/sychonix/testnet/blob/main/Andromeda/README.md)        | 
 | Sao Network       | [Click Here](./saonetwork/README.md)        | 
 | Ojo Network       | [Click Here](./ojonetwork/README.md)        |     
 
