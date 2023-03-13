@@ -28,7 +28,8 @@ eval $(echo 'export PATH=$PATH:$HOME/go/bin' | tee -a $HOME/.profile)
 
 ### **Download and build binaries**
 ```
-#Clone project repository
+<pre>
+# Clone project repository
 cd $HOME
 rm -rf andromedad
 git clone https://github.com/andromedaprotocol/andromedad.git
@@ -46,6 +47,7 @@ rm -rf build
 # Create application symlinks
 ln -s $HOME/.andromedad/cosmovisor/genesis $HOME/.andromedad/cosmovisor/current
 sudo ln -s $HOME/.andromedad/cosmovisor/current/bin/andromedad /usr/local/bin/andromedad
+</pre>
 ```
 
 ### Disable State Sync 
