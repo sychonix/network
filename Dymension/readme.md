@@ -1,4 +1,4 @@
-
+Special thanks to [KJNodes](https://github.com/kj89/testnet_manuals)
 <p align="center">
   <img height="100" height="auto" src="https://avatars.githubusercontent.com/u/108229184?s=200&v=4">
 </p>
