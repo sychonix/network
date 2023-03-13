@@ -28,9 +28,7 @@ eval $(echo 'export PATH=$PATH:$HOME/go/bin' | tee -a $HOME/.profile)
 
 ### **Download and build binaries**
 ```
-<textarea>
-Clone project repository
-</textarea>
+#Clone project repository
 cd $HOME
 rm -rf andromedad
 git clone https://github.com/andromedaprotocol/andromedad.git
