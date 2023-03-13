@@ -11,10 +11,10 @@
 ### Explorer:
 >-  https://explorer.nodexcapital.com/andromeda
 
-### Automatic Installer (Must Using Ubuntu 22.04)
-You can setup your Andromeda fullnode in few minutes by using automated script below.
+### Setup validator name
+Replace **YOUR_MONIKER** with your validator name
 ```
-wget -O andromeda.sh https://raw.githubusercontent.com/nodexcapital/testnet/main/andromeda/andromeda.sh && chmod +x andromeda.sh && ./andromeda.sh
+MONIKER="YOUR_MONIKER"
 ```
 ### Public Endpoint
 
