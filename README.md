@@ -2,8 +2,8 @@ List of Cosmos ecosystem projets with tutorial configured below
 
 
 
-| Project name | Automatic Installer                                                               
-|--------------|---------------------------------------------------------------|--------------------------------------------------|----------|
+| Project name | Automatic Installer                   |                                           
+|--------------|---------------------------------------|
 | Sei          | [Click Here](./sei/README.md)         |
 | Deweb        | [Click Here](./deweb/README.md)       |
 | Uptick       | [Click Here](./uptick/README.md)      |
