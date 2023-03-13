@@ -191,6 +191,8 @@ nibid tx slashing unjail --from wallet --chain-id galileo-3 --gas-adjustment 1.4
 ```
 Jail reason
 ```
+nibid query slashing signing-info $(nibid tendermint show-validator)
+```
 ### 💲 Token management
 Delegate tokens to yourself
 ```
