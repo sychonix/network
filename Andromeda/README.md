@@ -144,12 +144,19 @@ Export key to the file
 ```
 andromedad keys export wallet
 ```
-### List all keys
+List all keys
 ```
 andromedad keys list
 ```
-### Delete key
+Import key from the file
+```
+andromedad keys import wallet wallet.backup
+```
+Delete key
 ```
 andromedad keys delete wallet
 ```
-
+Query wallet balance
+```
+andromedad q bank balances $(andromedad keys show wallet -a)
+```
