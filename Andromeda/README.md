@@ -54,11 +54,35 @@ sudo ln -s $HOME/.andromedad/cosmovisor/current/bin/andromedad /usr/local/bin/an
 </pre>
 ```
 
-### Disable State Sync 
-After successful synchronization using state sync above, we advise you to disable synchronization with state sync and restart the node
+### **Install Cosmovisor and create a service** 
 ```
-sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1false|" $HOME/.andromedad/config/config.toml
-sudo systemctl restart andromedad && journalctl -u andromedad -f -o cat
+# Download and install Cosmovisor
+```
+go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@v1.4.0
+```
+# Create service
+```
+sudo tee /etc/systemd/system/andromedad.service > /dev/null << EOF
+[Unit]
+Description=andromeda-testnet node service
+After=network-online.target
+
+[Service]
+User=$USER
+ExecStart=$(which cosmovisor) run start
+Restart=on-failure
+RestartSec=10
+LimitNOFILE=65535
+Environment="DAEMON_HOME=$HOME/.andromedad"
+Environment="DAEMON_NAME=andromedad"
+Environment="UNSAFE_SKIP_BACKUP=true"
+Environment="PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:$HOME/.andromedad/cosmovisor/current/bin"
+
+[Install]
+WantedBy=multi-user.target
+EOF
+sudo systemctl daemon-reload
+sudo systemctl enable andromedad
 ```
 
 ### Live Peers
