@@ -12,6 +12,7 @@ MONIKER="YOUR_MONIKER"
 ```
 ### **Install dependencies**
 Update system and install build tools
+```
 sudo apt -q update
 sudo apt -qy install curl git jq lz4 build-essential
 sudo apt -qy upgrade
