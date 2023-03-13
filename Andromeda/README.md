@@ -162,3 +162,149 @@ Query wallet balance
 andromedad q bank balances $(andromedad keys show wallet -a)
 ```
 ------------------------
+
+### Validator management
+Create new validator
+``` 
+andromedad tx staking create-validator \
+--amount 1000000uandr \
+--pubkey $(andromedad tendermint show-validator) \
+--moniker "YOUR_MONIKER_NAME" \
+--identity "YOUR_KEYBASE_ID" \
+--details "YOUR_DETAILS" \
+--website "YOUR_WEBSITE_URL" \
+--chain-id galileo-3 \
+--commission-rate 0.05 \
+--commission-max-rate 0.20 \
+--commission-max-change-rate 0.01 \
+--min-self-delegation 1 \
+--from wallet \
+--gas-adjustment 1.4 \
+--gas auto \
+--gas-prices 0.0001uandr \
+-y
+```
+Edit existing validator
+```
+andromedad tx staking edit-validator \
+--new-moniker "YOUR_MONIKER_NAME" \
+--identity "YOUR_KEYBASE_ID" \
+--details "YOUR_DETAILS" \
+--website "YOUR_WEBSITE_URL"
+--chain-id galileo-3 \
+--commission-rate 0.05 \
+--from wallet \
+--gas-adjustment 1.4 \
+--gas auto \
+--gas-prices 0.0001uandr \
+-y
+```
+Unjail validator
+```
+andromedad tx slashing unjail --from wallet --chain-id galileo-3 --gas-adjustment 1.4 --gas auto --gas-prices 0.0001uandr -y
+```
+Jail reason
+```
+andromedad query slashing signing-info $(andromedad tendermint show-validator)
+```
+List all active validators
+```
+andromedad q staking validators -oj --limit=3000 | jq '.validators[] | select(.status=="BOND_STATUS_BONDED")' | jq -r '(.tokens|tonumber/pow(10; 6)|floor|tostring) + " \t " + .description.moniker' | sort -gr | nl
+```
+List all inactive validators
+```
+andromedad q staking validators -oj --limit=3000 | jq '.validators[] | select(.status=="BOND_STATUS_UNBONDED")' | jq -r '(.tokens|tonumber/pow(10; 6)|floor|tostring) + " \t " + .description.moniker' | sort -gr | nl
+```
+View validator details
+```
+andromedad q staking validator $(andromedad keys show wallet --bech val -a)
+```
+💲 Token management
+Withdraw rewards from all validators
+```
+andromedad tx distribution withdraw-all-rewards --from wallet --chain-id galileo-3 --gas-adjustment 1.4 --gas auto --gas-prices 0.0001uandr -y
+```
+Withdraw commission and rewards from your validator
+```
+andromedad tx distribution withdraw-rewards $(andromedad keys show wallet --bech val -a) --commission --from wallet --chain-id galileo-3 --gas-adjustment 1.4 --gas auto --gas-prices 0.0001uandr -y
+```
+Delegate tokens to yourself
+```
+andromedad tx staking delegate $(andromedad keys show wallet --bech val -a) 1000000uandr --from wallet --chain-id galileo-3 --gas-adjustment 1.4 --gas auto --gas-prices 0.0001uandr -y
+```
+Delegate tokens to validator
+```
+andromedad tx staking delegate <TO_VALOPER_ADDRESS> 1000000uandr --from wallet --chain-id galileo-3 --gas-adjustment 1.4 --gas auto --gas-prices 0.0001uandr -y
+```
+Redelegate tokens to another validator
+```
+andromedad tx staking redelegate $(andromedad keys show wallet --bech val -a) <TO_VALOPER_ADDRESS> 1000000uandr --from wallet --chain-id galileo-3 --gas-adjustment 1.4 --gas auto --gas-prices 0.0001uandr -y
+```
+Unbond tokens from your validator
+```
+andromedad tx staking unbond $(andromedad keys show wallet --bech val -a) 1000000uandr --from wallet --chain-id galileo-3 --gas-adjustment 1.4 --gas auto --gas-prices 0.0001uandr -y
+```
+Send tokens to the wallet
+```
+andromedad tx bank send wallet <TO_WALLET_ADDRESS> 1000000uandr --from wallet --chain-id galileo-3 --gas-adjustment 1.4 --gas auto --gas-prices 0.0001uandr -y
+```
+🚨 Maintenance
+Get validator info
+```
+andromedad status 2>&1 | jq .ValidatorInfo
+```
+Get sync info
+```
+andromedad status 2>&1 | jq .SyncInfo
+```
+Get node peer
+```
+echo $(andromedad tendermint show-node-id)'@'$(curl -s ifconfig.me)':'$(cat $HOME/.andromedad/config/config.toml | sed -n '/Address to listen for incoming connection/{n;p;}' | sed 's/.*://; s/".*//')
+```
+Check if validator key is correct
+```
+[[ $(andromedad q staking validator $(andromedad keys show wallet --bech val -a) -oj | jq -r .consensus_pubkey.key) = $(andromedad status | jq -r .ValidatorInfo.PubKey.value) ]] && echo -e "\n\e[1m\e[32mTrue\e[0m\n" || echo -e "\n\e[1m\e[31mFalse\e[0m\n"
+```
+Get live peers
+```
+curl -sS http://localhost:47657/net_info | jq -r '.result.peers[] | "\(.node_info.id)@\(.remote_ip):\(.node_info.listen_addr)"' | awk -F ':' '{print $1":"$(NF)}'
+```
+Set minimum gas price
+```
+sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.0001uandr\"/" $HOME/.andromedad/config/app.toml
+```
+Enable prometheus
+```
+sed -i -e "s/prometheus = false/prometheus = true/" $HOME/.andromedad/config/config.toml
+```
+Reset chain data
+```
+andromedad tendermint unsafe-reset-all --home $HOME/.andromedad --keep-addr-book
+```
+Remove node
+Please, before proceeding with the next step! All chain data will be lost! Make sure you have backed up your priv_validator_key.json!
+cd $HOME
+sudo systemctl stop andromedad
+sudo systemctl disable andromedad
+sudo rm /etc/systemd/system/andromedad.service
+sudo systemctl daemon-reload
+rm -f $(which andromedad)
+rm -rf $HOME/.andromedad
+rm -rf $HOME/andromedad
+⚙️ Service Management
+Reload service configuration
+sudo systemctl daemon-reload
+Enable service
+sudo systemctl enable andromedad
+Disable service
+sudo systemctl disable andromedad
+Start service
+sudo systemctl start andromedad
+Stop service
+sudo systemctl stop andromedad
+Restart service
+sudo systemctl restart andromedad
+Check service status
+sudo systemctl status andromedad
+Check service logs
+sudo journalctl -u andromedad -f --no-hostname -o cat
