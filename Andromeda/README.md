@@ -47,6 +47,7 @@ mkdir -p $HOME/.andromedad/cosmovisor/genesis/bin
 mv build/andromedad $HOME/.andromedad/cosmovisor/genesis/bin/
 rm -rf build
 ```
+
 # Create application symlinks
 ```
 ln -s $HOME/.andromedad/cosmovisor/genesis $HOME/.andromedad/cosmovisor/current
@@ -55,11 +56,12 @@ sudo ln -s $HOME/.andromedad/cosmovisor/current/bin/andromedad /usr/local/bin/an
 ```
 
 ### **Install Cosmovisor and create a service** 
-```
 # Download and install Cosmovisor
+
 ```
 go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@v1.4.0
 ```
+
 # Create service
 ```
 sudo tee /etc/systemd/system/andromedad.service > /dev/null << EOF
