@@ -204,3 +204,24 @@ View validator details
 ```
 dymd q staking validator $(dymd keys show wallet --bech val -a)
 ```
+# 🚨 Maintenance
+Get validator info
+```
+dymd status 2>&1 | jq .ValidatorInfo
+```
+Get sync info
+```
+dymd status 2>&1 | jq .SyncInfo
+```
+Remove node
+Please, before proceeding with the next step! All chain data will be lost! Make sure you have backed up your priv_validator_key.json!
+```
+cd $HOME
+sudo systemctl stop dymd
+sudo systemctl disable dymd
+sudo rm /etc/systemd/system/dymd.service
+sudo systemctl daemon-reload
+rm -f $(which dymd)
+rm -rf $HOME/.dymension
+rm -rf $HOME/dymension
+```
