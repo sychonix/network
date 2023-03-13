@@ -5,22 +5,17 @@
 
 # Andromeda Testnet | Chain ID : galileo-3 | Custom Port : 244
 
-### Community Documentation :
->- [Validator Setup Instructions](https://services.kjnodes.com/home/testnet/andromeda)
-
-### Explorer:
->-  https://explorer.nodexcapital.com/andromeda
-
 ### Setup validator name
 Replace **YOUR_MONIKER** with your validator name
 ```
 MONIKER="YOUR_MONIKER"
 ```
-### Public Endpoint
-
->- API : https://api.andromeda-t.nodexcapital.com
->- RPC : https://rpc.andromeda-t.nodexcapital.com
->- gRPC : https://grpc.andromeda-t.nodexcapital.com
+### **Install dependencies**
+Update system and install build tools
+sudo apt -q update
+sudo apt -qy install curl git jq lz4 build-essential
+sudo apt -qy upgrade
+```
 
 ### Snapshot (Update every 5 hours)
 ```
