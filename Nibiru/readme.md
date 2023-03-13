@@ -145,7 +145,7 @@ nibid keys delete wallet
 ```
 Query wallet balance
 ```
-nibid q bank balances $(andromedad keys show wallet -a)
+nibid q bank balances $(nibid keys show wallet -a)
 ```
 ------------------------
 
@@ -187,7 +187,7 @@ nibid tx staking edit-validator \
 ```
 Unjail validator
 ```
-nibid tx slashing unjail --from wallet --chain-id galileo-3 --gas-adjustment 1.4 --gas auto --gas-prices 0.0001uandr -y
+nibid tx slashing unjail --from wallet --chain-id nibiru-itn-1 --gas-adjustment 1.4 --gas auto --gas-prices 0.025unibi -y
 ```
 Jail reason
 ```
@@ -196,15 +196,15 @@ nibid query slashing signing-info $(nibid tendermint show-validator)
 ### 💲 Token management
 Delegate tokens to yourself
 ```
-nibid tx staking delegate $(andromedad keys show wallet --bech val -a) 1000000uandr --from wallet --chain-id galileo-3 --gas-adjustment 1.4 --gas auto --gas-prices 0.0001uandr -y
+nibid tx staking delegate $(nibid keys show wallet --bech val -a) 1000000unibi --from wallet --chain-id nibiru-itn-1 --gas-adjustment 1.4 --gas auto --gas-prices 0.025unibi -y
 ```
 Delegate tokens to validator
 ```
-nibid tx staking delegate <TO_VALOPER_ADDRESS> 1000000uandr --from wallet --chain-id galileo-3 --gas-adjustment 1.4 --gas auto --gas-prices 0.0001uandr -y
+nibid tx staking delegate <TO_VALOPER_ADDRESS> 1000000unibi --from wallet --chain-id nibiru-itn-1 --gas-adjustment 1.4 --gas auto --gas-prices 0.025unibi -y
 ```
 Send tokens to the wallet
 ```
-nibid tx bank send wallet <TO_WALLET_ADDRESS> 1000000uandr --from wallet --chain-id galileo-3 --gas-adjustment 1.4 --gas auto --gas-prices 0.0001uandr -y
+nibid tx bank send wallet <TO_WALLET_ADDRESS> 1000000uandr --from wallet --chain-id nibiru-itn-1 --gas-adjustment 1.4 --gas auto --gas-prices 0.0001uandr -y
 ```
 ### 🚨 Maintenance
 Get validator info
