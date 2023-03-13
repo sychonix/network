@@ -129,3 +129,27 @@ curl -L https://snapshots.sychonix.com/andromeda-testnet/snapshot_latest.tar.lz4
 ```
 sudo systemctl start andromedad && sudo journalctl -u andromedad -f --no-hostname -o cat
 ```
+### **Useful Commands**
+
+### Add new key
+```
+andromedad keys add wallet
+```
+
+### Recover existing key
+```
+andromedad keys add wallet --recover
+```
+### Export key to the file
+```
+andromedad keys export wallet
+```
+### List all keys
+```
+andromedad keys list
+```
+### Delete key
+```
+andromedad keys delete wallet
+```
+
