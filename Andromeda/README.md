@@ -131,6 +131,7 @@ sudo systemctl start andromedad && sudo journalctl -u andromedad -f --no-hostnam
 ```
 ### **Useful Commands**
 
+------------------------
 ### **Key management**
 Add new key
 ```
@@ -160,3 +161,4 @@ Query wallet balance
 ```
 andromedad q bank balances $(andromedad keys show wallet -a)
 ```
+------------------------
