@@ -12,20 +12,22 @@
 Keep $COREUM_HOME/config/node_key.json and $COREUM_HOME/config/priv_validator_key.json files in a safe place, since they can be used to recover the validator node!
 
 # Set the moniker variable to reuse it in the following instructions.
-
+```
 export MONIKER="validator"
- 
+ ```
 Set waiting window between validator restart to avoid double signing.
 (Check if $COREUM_NODE_CONFIG is set(it should be there, if you haven't exited from the beginning of installation)
-
+```
 crudini --set $COREUM_NODE_CONFIG consensus double_sign_check_height 10
+```
 Init new account (if you don't have existing), which will be used for validator control, delegation and staking rewards/commission receiving
-
+```
 cored keys add $MONIKER --keyring-backend os
+```
 You will be asked to set the keyring passphrase, set it, and remember/save it, since you will need it to access your private key.
 
 The output example:
-
+```
 - name: validator
   type: local
   address: testcorevaloper15fr7w6trtx8nzkjp33tcqj922q6r82tp05gdpe
@@ -36,21 +38,23 @@ The output example:
 It is the only way to recover your account if you ever forget your password.
 
 nice equal sample cabbage demise online winner lady theory invest clarify organ divorce wheel patient gap group endless security price smoke insane link position
+```
 Attention! Keep the mnemonic phrase in a safe place, since it can be used to recover the key! (Don't be confused with empty mnemonic after pubkey, it is shown in the end of the output)
-
 If you have the mnemonic you can import it (skip it if you generated account at the previous step)
-
+```
 cored keys add $MONIKER --keyring-backend os --recover
+```
 You will be asked to "Enter keyring passphrase" and "Enter your bip39 mnemonic".
 
 Derive the validator-operator address, which will be used for validator creation.
-
+```
 cored keys show $MONIKER --bech val --address --keyring-backend os
 # output example:
 # testcorevaloper15fr7w6trtx8nzkjp33tcqj922q6r82tp05gdpe
+```
 Fund the account.
 
-You can find the recommended amount with calculation at this page.
+You can find the recommended amount with calculation at this page[this page](https://docs.coreum.dev/validator/how-much-fund-is-needed.html) .
 For the Testnet you can request test tokens at discord channel
 Check that you have enough to create the validator(minimum self delegation is 20k)
 
