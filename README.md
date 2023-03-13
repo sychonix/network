@@ -2,7 +2,7 @@ List of Cosmos ecosystem projets with tutorial configured below
 
 
 
-| Project name | guide Installer                            |                                           
+| Project Name | Guide Installer                            |                                           
 |--------------|--------------------------------------------|
 | Andromeda    | [Click Here](./Andromeda/README.md)        |           
 | Wormholes    | [Click Here](./Wormholes/readme.md)        |
