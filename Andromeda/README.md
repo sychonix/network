@@ -219,7 +219,7 @@ View validator details
 ```
 andromedad q staking validator $(andromedad keys show wallet --bech val -a)
 ```
-##$💲 Token management
+### 💲 Token management
 Withdraw rewards from all validators
 ```
 andromedad tx distribution withdraw-all-rewards --from wallet --chain-id galileo-3 --gas-adjustment 1.4 --gas auto --gas-prices 0.0001uandr -y
@@ -248,7 +248,7 @@ Send tokens to the wallet
 ```
 andromedad tx bank send wallet <TO_WALLET_ADDRESS> 1000000uandr --from wallet --chain-id galileo-3 --gas-adjustment 1.4 --gas auto --gas-prices 0.0001uandr -y
 ```
-###🚨 Maintenance
+### 🚨 Maintenance
 Get validator info
 ```
 andromedad status 2>&1 | jq .ValidatorInfo
@@ -293,7 +293,7 @@ rm -f $(which andromedad)
 rm -rf $HOME/.andromedad
 rm -rf $HOME/andromedad
 ```
-###⚙️ Service Management
+### ⚙️ Service Management
 Reload service configuration
 ```
 sudo systemctl daemon-reload
