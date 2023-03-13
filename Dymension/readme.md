@@ -115,3 +115,92 @@ sed -i -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:46317\"
 ```
 sudo systemctl start dymd && sudo journalctl -u dymd -f --no-hostname -o cat
 ```
+# Useful commands
+Useful set of commands for node operators. From key management to chain governance.
+
+# 🔑 Key management
+Add new key
+```
+dymd keys add wallet
+```
+Recover existing key
+```
+dymd keys add wallet --recover
+```
+List all keys
+```
+dymd keys list
+```
+Delete key
+```
+dymd keys delete wallet
+```
+Export key to the file
+```
+dymd keys export wallet
+```
+Import key from the file
+```
+dymd keys import wallet wallet.backup
+```
+Query wallet balance
+```
+dymd q bank balances $(dymd keys show wallet -a)
+```
+# 👷 Validator management
+Please make sure you have adjusted moniker, identity, details and website to match your values.
+Create new validator
+```
+dymd tx staking create-validator \
+--amount 1000000udym \
+--pubkey $(dymd tendermint show-validator) \
+--moniker "YOUR_MONIKER_NAME" \
+--identity "YOUR_KEYBASE_ID" \
+--details "YOUR_DETAILS" \
+--website "YOUR_WEBSITE_URL" \
+--chain-id 35-C \
+--commission-rate 0.05 \
+--commission-max-rate 0.20 \
+--commission-max-change-rate 0.01 \
+--min-self-delegation 1 \
+--from wallet \
+--gas-adjustment 1.4 \
+--gas auto \
+--gas-prices 0.025udym \
+-y
+```
+Edit existing validator
+```
+dymd tx staking edit-validator \
+--new-moniker "YOUR_MONIKER_NAME" \
+--identity "YOUR_KEYBASE_ID" \
+--details "YOUR_DETAILS" \
+--website "YOUR_WEBSITE_URL"
+--chain-id 35-C \
+--commission-rate 0.05 \
+--from wallet \
+--gas-adjustment 1.4 \
+--gas auto \
+--gas-prices 0.025udym \
+-y
+```
+Unjail validator
+```
+dymd tx slashing unjail --from wallet --chain-id 35-C --gas-adjustment 1.4 --gas auto --gas-prices 0.025udym -y
+```
+Jail reason
+```
+dymd query slashing signing-info $(dymd tendermint show-validator)
+```
+List all active validators
+```
+dymd q staking validators -oj --limit=3000 | jq '.validators[] | select(.status=="BOND_STATUS_BONDED")' | jq -r '(.tokens|tonumber/pow(10; 6)|floor|tostring) + " \t " + .description.moniker' | sort -gr | nl
+```
+List all inactive validators
+```
+dymd q staking validators -oj --limit=3000 | jq '.validators[] | select(.status=="BOND_STATUS_UNBONDED")' | jq -r '(.tokens|tonumber/pow(10; 6)|floor|tostring) + " \t " + .description.moniker' | sort -gr | nl
+```
+View validator details
+```
+dymd q staking validator $(dymd keys show wallet --bech val -a)
+```
