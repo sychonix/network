@@ -132,7 +132,7 @@ sudo systemctl start andromedad && sudo journalctl -u andromedad -f --no-hostnam
 ### **Useful Commands**
 
 ------------------------
-### **Key management**
+### **🔑 Key management**
 Add new key
 ```
 andromedad keys add wallet
@@ -163,7 +163,7 @@ andromedad q bank balances $(andromedad keys show wallet -a)
 ```
 ------------------------
 
-### Validator management
+### 👷 Validator management
 Create new validator
 ``` 
 andromedad tx staking create-validator \
@@ -219,7 +219,7 @@ View validator details
 ```
 andromedad q staking validator $(andromedad keys show wallet --bech val -a)
 ```
-💲 Token management
+##$💲 Token management
 Withdraw rewards from all validators
 ```
 andromedad tx distribution withdraw-all-rewards --from wallet --chain-id galileo-3 --gas-adjustment 1.4 --gas auto --gas-prices 0.0001uandr -y
@@ -248,7 +248,7 @@ Send tokens to the wallet
 ```
 andromedad tx bank send wallet <TO_WALLET_ADDRESS> 1000000uandr --from wallet --chain-id galileo-3 --gas-adjustment 1.4 --gas auto --gas-prices 0.0001uandr -y
 ```
-🚨 Maintenance
+###🚨 Maintenance
 Get validator info
 ```
 andromedad status 2>&1 | jq .ValidatorInfo
@@ -282,7 +282,8 @@ Reset chain data
 andromedad tendermint unsafe-reset-all --home $HOME/.andromedad --keep-addr-book
 ```
 Remove node
-Please, before proceeding with the next step! All chain data will be lost! Make sure you have backed up your priv_validator_key.json!
+***Please, before proceeding with the next step! All chain data will be lost! Make sure you have backed up your priv_validator_key.json!***
+```
 cd $HOME
 sudo systemctl stop andromedad
 sudo systemctl disable andromedad
@@ -291,20 +292,37 @@ sudo systemctl daemon-reload
 rm -f $(which andromedad)
 rm -rf $HOME/.andromedad
 rm -rf $HOME/andromedad
-⚙️ Service Management
+```
+###⚙️ Service Management
 Reload service configuration
+```
 sudo systemctl daemon-reload
+```
 Enable service
+```
 sudo systemctl enable andromedad
+```
 Disable service
+```
 sudo systemctl disable andromedad
+```
 Start service
+```
 sudo systemctl start andromedad
+```
 Stop service
+```
 sudo systemctl stop andromedad
+```
 Restart service
+```
 sudo systemctl restart andromedad
+```
 Check service status
+```
 sudo systemctl status andromedad
+```
 Check service logs
+```
 sudo journalctl -u andromedad -f --no-hostname -o cat
+```
