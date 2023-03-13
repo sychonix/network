@@ -87,16 +87,45 @@ sudo systemctl daemon-reload
 sudo systemctl enable andromedad
 ```
 
-### Live Peers
+### **Initialize the node**
 ```
-PEERS="8083dd301a7189284bf5b8d40c4cf239360d653a@5.9.122.49:26656,749114faeb62649d94b8ed496efbdcd4a08b2e3e@136.243.93.134:20095,d5519e378247dfb61dfe90652d1fe3e2b3005a5b@65.109.68.190:47656,ef6ec2cf74e157e3c6056c0469f3ede08b418ec7@144.76.164.139:15656,c5f6021d8da08ff53e90725c0c2a77f8d65f5e03@195.201.195.40:26656,f1d30c5f2d5882823317718eb4455f87ae846d0a@85.239.235.235:30656,334a842f175c2c24c6b11e8bce39c9d3443471ae@38.242.213.79:26656,d78df88bc4a487c140e466a23f549ed90e7ebfb6@161.97.152.157:27656"
-sed -i -e "s|^persistent_peers *=.*|persistent_peers = \"$PEERS\"|" $HOME/.andromedad/config/config.toml
+# Set node configuration
+andromedad config chain-id galileo-3
+andromedad config keyring-backend test
+andromedad config node tcp://localhost:47657
+
+# Initialize the node
+andromedad init $MONIKER --chain-id galileo-3
+
+# Download genesis and addrbook
+curl -Ls https://snapshots.sychonix.com/andromeda-testnet/genesis.json > $HOME/.andromedad/config/genesis.json
+curl -Ls https://snapshots.sychonix.com/andromeda-testnet/addrbook.json > $HOME/.andromedad/config/addrbook.json
+
+# Add seeds
+sed -i -e "s|^seeds *=.*|seeds = \"3f472746f46493309650e5a033076689996c8881@andromeda-testnet.rpc.kjnodes.com:47659\"|" $HOME/.andromedad/config/config.toml
+
+# Set minimum gas price
+sed -i -e "s|^minimum-gas-prices *=.*|minimum-gas-prices = \"0.0001uandr\"|" $HOME/.andromedad/config/app.toml
+
+# Set pruning
+sed -i \
+  -e 's|^pruning *=.*|pruning = "custom"|' \
+  -e 's|^pruning-keep-recent *=.*|pruning-keep-recent = "100"|' \
+  -e 's|^pruning-keep-every *=.*|pruning-keep-every = "0"|' \
+  -e 's|^pruning-interval *=.*|pruning-interval = "19"|' \
+  $HOME/.andromedad/config/app.toml
+
+# Set custom ports
+sed -i -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:47658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:47657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:47060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:47656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":47660\"%" $HOME/.andromedad/config/config.toml
+sed -i -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:47317\"%; s%^address = \":8080\"%address = \":47080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:47090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:47091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:47545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:47546\"%" $HOME/.andromedad/config/app.toml
 ```
-### Addrbook (Update every hour)
+
+### **Download latest chain snapshot**
 ```
-curl -Ls https://snap.nodexcapital.com/andromeda/addrbook.json > $HOME/.andromedad/config/addrbook.json
+curl -L https://snapshots.sychonix.com/andromeda-testnet/snapshot_latest.tar.lz4 | tar -Ilz4 -xf - -C $HOME/.andromedad
+[[ -f $HOME/.andromedad/data/upgrade-info.json ]] && cp $HOME/.andromedad/data/upgrade-info.json $HOME/.andromedad/cosmovisor/genesis/upgrade-info.json
 ```
-### Genesis
+### **Start service and check the logs**
 ```
-curl -Ls https://snap.nodexcapital.com/andromeda/genesis.json > $HOME/.andromedad/config/genesis.json
+sudo systemctl start andromedad && sudo journalctl -u andromedad -f --no-hostname -o cat
 ```
