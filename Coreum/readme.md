@@ -11,11 +11,11 @@
 
 Keep $COREUM_HOME/config/node_key.json and $COREUM_HOME/config/priv_validator_key.json files in a safe place, since they can be used to recover the validator node!
 
-Set the moniker variable to reuse it in the following instructions.
+# Set the moniker variable to reuse it in the following instructions.
 
 export MONIKER="validator"
  
-# Set waiting window between validator restart to avoid double signing.
+Set waiting window between validator restart to avoid double signing.
 (Check if $COREUM_NODE_CONFIG is set(it should be there, if you haven't exited from the beginning of installation)
 
 crudini --set $COREUM_NODE_CONFIG consensus double_sign_check_height 10
