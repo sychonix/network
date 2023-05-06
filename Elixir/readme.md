@@ -1,4 +1,4 @@
 
 <p align="center">
-  <img height="100" height="auto" src="Elixir/elixir.png">
+  <img height="100" height="auto" src="elixir.png">
 </p>
