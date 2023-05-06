@@ -52,9 +52,10 @@ docker run -it --name ev elixir-validator
 
 - Then, verify that valid orders are being processed by finding your validator on the [metrics page](https://dashboard.elixir.finance/metrics).
 
-
-
-
+# check log node
+```
+docker logs -f <Container ID>
+```
 
 
 [Sychonix](https://discord.com/users/803665234799362088)
