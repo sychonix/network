@@ -39,3 +39,22 @@ It will take some time to build but once its done you can run the validator by e
 ```
 docker run -it --name ev elixir-validator
 ```
+### Enrol your Wallet as a validator
+13. Navigate to the [Elixir Network Dashboard](https://dashboard.elixir.finance/) with your wallet-connected browser. Connect with Metamask and switch to the Goerli network.
+
+14. Claim your ELXR (If you were part of testnet V1 you would be eligible to receive ELXR). If you need Goerli ETH, you can ask in the Discord server. Testnet-1 operators have received a Goerli ETH airdrop large enough to pay any network gas fees.
+
+15. Once you have received ELXR tokens, you will need to stake those tokens. Any amount from 100–1000 ELXR will do.
+
+16. Next, enroll your validator. You can click the enroll button, and then enter the wallet address used to spin up your validator in the prior steps. Note: there can be a delay before the enrol button becomes active.
+
+17. Once this transaction is confirmed, check the leaderboard to ensure your address is enrolled.
+
+18. Then, verify that valid orders are being processed by finding your validator on the metrics page.
+
+
+
+
+
+
+[Sychonix](https://discord.com/users/803665234799362088)
