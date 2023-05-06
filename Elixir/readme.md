@@ -26,7 +26,16 @@ and update it from:
 ```
 FROM elixirprotocol/validator:testnet-1
 
-ENV ADDRESS=
-ENV PRIVATE_KEY=
-ENV VALIDATOR_NAME=
+ENV ADDRESS=<your_address>
+ENV PRIVATE_KEY=<your_private_key>
+ENV VALIDATOR_NAME=<your_name>
+```
+Then press ctrl + x, then y, then enter
+### Build the Docker image
+```
+docker build . -f Dockerfile -t elixir-validator
+```
+It will take some time to build but once its done you can run the validator by executing the following:
+```
+docker run -it --name ev elixir-validator
 ```
