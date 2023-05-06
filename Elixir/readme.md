@@ -30,7 +30,7 @@ ENV ADDRESS=<your_address>
 ENV PRIVATE_KEY=<your_private_key>
 ENV VALIDATOR_NAME=<your_name>
 ```
-Then press ctrl + x, then y, then enter
+Then press `ctrl + x`, then `y`, then `enter`
 ### Build the Docker image
 ```
 docker build . -f Dockerfile -t elixir-validator
@@ -50,7 +50,7 @@ docker run -it --name ev elixir-validator
 
 - Once this transaction is confirmed, check the [leaderboard](https://dashboard.elixir.finance/leaderboard) to ensure your address is enrolled.
 
-18. Then, verify that valid orders are being processed by finding your validator on the [metrics page](https://dashboard.elixir.finance/metrics).
+- Then, verify that valid orders are being processed by finding your validator on the [metrics page](https://dashboard.elixir.finance/metrics).
 
 
 
