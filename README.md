@@ -1,4 +1,3 @@
-List of Cosmos ecosystem projets with tutorial configured below
 
 
 
