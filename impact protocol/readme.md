@@ -1,3 +1,8 @@
+<p align="center">
+
+  <img height="100" height="auto" src="impact.png">
+
+</p>
 # Impact Protocol 
 
 ### Install Dependencies
