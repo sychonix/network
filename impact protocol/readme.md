@@ -83,5 +83,5 @@ Enter your Secret seed in the form below.
 --rpc-methods Unsafe \
 --name sysuwh \
 ```
-
+Check your node [in here](https://telemetry.polkadot.io/#list/0x1133ca761f24222cb0811f34641dba07acd88c77bd9f30a23a99c2cba233cb91)
 
