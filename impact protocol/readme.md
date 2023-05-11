@@ -37,7 +37,7 @@ Address: 5xxxxxx
 ```
 Please save both your Public key and Secret Seed
 ### Import Wallet
-Enter your Secret seed in the form below that we generated in step 4.
+Enter your Secret seed in the form below.
 ```
 ./target/release/impact import-mining-key "your_screet_seed" \--base-path /tmp/impactnode \--chain=impact-testnet
 ```
