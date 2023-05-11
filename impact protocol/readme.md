@@ -26,3 +26,13 @@ rustup show
 
 rustup +nightly show
 ```
+# Create a New Screen
+```
+screen -S impact
+```
+Instal Binary
+```
+git clone https://github.com/GlobalBoost/impactprotocol
+cd impactprotocol
+cargo build --release
+```
