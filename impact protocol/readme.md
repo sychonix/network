@@ -1,6 +1,6 @@
-### Impact Protocol 
+# Impact Protocol 
 
-# Install Dependencies
+### Install Dependencies
 ```
 sudo apt-get update
 sudo apt install --assume-yes git clang curl libssl-dev llvm libudev-dev make protobuf-compiler
@@ -15,7 +15,7 @@ rustup target add wasm32-unknown-unknown --toolchain nightly
 rustup show
 rustup +nightly show
 ```
-# Create a New Screen
+### Create a New Screen
 ```
 screen -S impact
 ```
@@ -25,7 +25,7 @@ git clone https://github.com/GlobalBoost/impactprotocol
 cd impactprotocol
 cargo build --release
 ```
-# Generate Mining Key
+### Generate Mining Key
 ```
 ./target/release/impact generate-mining-key --chain=impact-testnet
 ```
@@ -36,12 +36,12 @@ Secret seed: xxxxx
 Address: 5xxxxxx
 ```
 Please save both your Public key and Secret Seed
-# Import Wallet
+### Import Wallet
 Enter your Secret seed in the form below that we generated in step 4.
 ```
 ./target/release/impact import-mining-key "your_screet_seed" \--base-path /tmp/impactnode \--chain=impact-testnet
 ```
-# Collecting Data
+### Collecting Data
 ```
 ./target/release/impact key insert \
   --base-path ~/.impactnode01 \
@@ -66,7 +66,7 @@ Enter your Secret seed in the form below that we generated in step 4.
   --suri "your_screet_seed//sysuwh///impact" \
   --key-type auth
 ```
-# Run Node
+### Run Node
 ```
 ./target/release/impact \
 --base-path /tmp/impactnode \
