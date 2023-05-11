@@ -31,9 +31,9 @@ cargo build --release
 ```
 Then it will come out as follows
 ```
-Public key: 0xxxx
-Secret seed: xxxxx
-Address: 5xxxxxx
+Public key:0xxxx
+Secret seed:xxxxx
+Address:5xxxxxx
 ```
 Please save both your Public key and Secret Seed
 ### Import Wallet
