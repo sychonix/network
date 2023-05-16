@@ -55,12 +55,12 @@ sed -i -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${PORT}
 
 ### Genesis
 ```
-wget -O $HOME/.archway/config/genesis.json https://raw.githubusercontent.com/archway-network/networks/main/constantine-3/genesis.json
+curl -Ls https://snapshots.kjnodes.com/archway-testnet/genesis.json > $HOME/.archway/config/genesis.json
 ```
 
 ### Addrbook
 ```
-
+curl -Ls https://snapshots.kjnodes.com/archway-testnet/addrbook.json > $HOME/.archway/config/addrbook.json
 ```
 
 ### Seed & Peer
