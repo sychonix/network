@@ -28,7 +28,7 @@ go version
 cd $HOME
 git clone https://github.com/archway-network/archway.git
 cd archway
-git checkout v0.5.1
+git checkout v0.5.2
 make install
 ```
 
