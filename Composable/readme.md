@@ -30,7 +30,7 @@ go version
 cd $HOME
 git clone https://github.com/notional-labs/composable-testnet.git
 cd composable-testnet
-git checkout v2.2.0
+git checkout v2.3.3-testnet2fork
 make install
 ```
 
@@ -39,8 +39,8 @@ make install
 MONIKER=
 ```
 ```
-banksyd init $MONIKER --chain-id banksy-testnet-1
-banksyd config chain-id banksy-testnet-1
+banksyd init $MONIKER --chain-id banksy-testnet-2
+banksyd config chain-id banksy-testnet-2
 banksyd config keyring-backend test
 ```
 
@@ -56,7 +56,7 @@ sed -i -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${PORT}
 
 ### Genesis
 ```
-curl -Ls https://snapshots.kjnodes.com/composable-testnet/genesis.json > $HOME/.banksy/config/genesis.json
+curl -Ls https://snapshots.sychonix.me/composable-testnet/genesis.json > $HOME/.banksy/config/genesis.json
 ```
 Seed, Peer & Gas
 ```
