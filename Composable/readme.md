@@ -4,7 +4,7 @@
   <img height="100" height="auto" src="Composable.jpg">
 </p>
 
-# Composable | Chain ID: banksy-testnet-1 | Custom Port : 36
+### Composable | Version Tag: v2.3.3-testnet2fork | Chain ID: banksy-testnet-2 | Custom Port : 36
 
 ### Install Dependencies
 ```
