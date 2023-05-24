@@ -131,13 +131,13 @@ banksyd q bank balances
 ### Validator
 ```
 banksyd tx staking create-validator \
---amount 1000000ubanksy \
+--amount 1000000upica \
 --pubkey $(banksyd tendermint show-validator) \
 --moniker "YOUR_MONIKER_NAME" \
 --identity "YOUR_KEYBASE_ID" \
 --details "YOUR_DETAILS" \
 --website "YOUR_WEBSITE_URL" \
---chain-id banksy-testnet-1 \
+--chain-id banksy-testnet-2 \
 --commission-rate 0.05 \
 --commission-max-rate 0.20 \
 --commission-max-change-rate 0.01 \
@@ -145,13 +145,13 @@ banksyd tx staking create-validator \
 --from wallet \
 --gas-adjustment 1.4 \
 --gas auto \
---gas-prices 0ubanksy \
+--gas-prices 0upica \
 -y
 ```
 
 ### Unjail
 ```
-banksyd tx slashing unjail --from wallet --chain-id banksy-testnet-1 --gas-adjustment 1.4 --gas auto --gas-prices 0ubanksy -y
+banksyd tx slashing unjail --from wallet --chain-id banksy-testnet-2 --gas-adjustment 1.4 --gas auto --gas-prices 0upica -y
 ```
 
 ### Jail Reason
@@ -161,17 +161,17 @@ banksyd query slashing signing-info $(banksyd tendermint show-validator)
 
 ### Withdraw 
 ```
-banksyd tx distribution withdraw-all-rewards --from wallet --chain-id banksy-testnet-1 --gas-adjustment 1.4 --gas auto --gas-prices 0ubanksy -y
+banksyd tx distribution withdraw-all-rewards --from wallet --chain-id banksy-testnet-2 --gas-adjustment 1.4 --gas auto --gas-prices 0upica -y
 ```
 
 ### Withdraw Comission
 ```
-banksyd tx distribution withdraw-rewards $(banksyd keys show wallet --bech val -a) --commission --from wallet --chain-id banksy-testnet-1 --gas-adjustment 1.4 --gas auto --gas-prices 0ubanksy -y
+banksyd tx distribution withdraw-rewards $(banksyd keys show wallet --bech val -a) --commission --from wallet --chain-id banksy-testnet-2 --gas-adjustment 1.4 --gas auto --gas-prices 0upica -y
 ```
 
-### Delegate
+### Delegate to your validator
 ```
-banksyd tx staking delegate <TO_VALOPER_ADDRESS> 1000000ubanksy --from wallet --chain-id banksy-testnet-1 --gas-adjustment 1.4 --gas auto --gas-prices 0ubanksy -y
+banksyd tx staking delegate $(banksyd keys show wallet --bech val -a) 1000000upica --from wallet --chain-id banksy-testnet-2 --gas-adjustment 1.4 --gas auto --gas-prices 0upica -y
 ```
 
 ### Check Match
