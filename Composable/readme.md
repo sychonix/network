@@ -27,7 +27,7 @@ go version
 ### Download and build binaries
 ```
 cd $HOME
-git clone https://github.com/notional-labs/composable-testnet
+git clone https://github.com/notional-labs/composable-testnet.git
 cd composable-testnet
 git checkout v2.3.3-testnet2fork
 make install
