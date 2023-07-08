@@ -124,5 +124,5 @@ contract WRC20 is IWRC20 {
 
 
 contract TestToken is WRC20 {
-    constructor(address owner) WRC20("White Rapzz", "WTR", 1000000*10**18) {}
+    constructor(address owner) WRC20("sychonix", "SYNX", 1000000*10**18) {}
 }
