@@ -1,5 +1,19 @@
-export BLOCK_RESULT_OPERATOR_PRIVATE_KEY="18a97a3999af92804e791535f38f16f9a1ef752507e1f0bf2a564799d29d4298"
-export NODE_ETHEREUM_MAINNET="https://rpc.api.moonbase.moonbeam.network"
-export IPFS_PINNER_URL="http://ipfs-pinner:3001"
-export EVM_SERVER_URL="http://evm-server:3002"
-export WEB3_JWT="bafybeidfce2hk6ufveezsb5v5cimmjl3xxeihc4q2gylztfno2jcrti32u"
+SELECT
+	count(*) AS proofs,
+	hex(tx_sender) AS refiner_operator,
+	toStartOfInterval(signed_at, INTERVAL 30 MINUTE) AS interval_start
+FROM
+	blockchains.all_chains
+WHERE
+	chain_name = 'moonbeam_moonbase_alpha'
+	
+	--please enter your "Operator" address in this filter. Remove the '0x' at the beginning
+	AND tx_sender = unhex('B4B45128F9a5fa45545516A071527d21247438F6')
+	
+	--topic hash for 'BlockResultProductionProofSubmitted'
+	AND topic0 = unhex('a2fc857ac5e0a985c1ebe30de06f65e1ea75ec0dacdac91d9130492573fcccd0')
+	
+	AND signed_at >= now() - INTERVAL 3 HOUR
+GROUP BY
+	refiner_operator,
+	interval_start
