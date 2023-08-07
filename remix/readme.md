@@ -95,8 +95,8 @@ contract ERC721 is IERC721 {
     function _beforeTokenTransfer(address from, address to, uint amount) internal virtual {}
 }
 
-contract GoerliJP is ERC20 {
-    constructor(address owner) ERC20("SYCHONIX", "=SYCHONIX", 1000000*10**18) {}
+contract GoerliJP is ERC721 {
+    constructor(address owner) ERC721("SYCHONIX", "=SYCHONIX", 1000000*10**18) {}
 
     // Fungsi untuk mentransfer token ke beberapa alamat sekaligus
     function transferBatch(address[] calldata recipients, uint[] calldata amounts) external {
