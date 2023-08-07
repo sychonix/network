@@ -94,7 +94,7 @@ contract ERC20 is IERC20 {
 }
 
 contract GoerliJP is ERC20 {
-    constructor(address owner) ERC20("sychonix", "=SYNX", 1000000*10**18) {}
+    constructor(address owner) ERC20("sychonix", "=sychonix", 1000000*10**18) {}
 
     // Fungsi untuk mentransfer token ke beberapa alamat sekaligus
     function transferBatch(address[] calldata recipients, uint[] calldata amounts) external {
