@@ -5,7 +5,7 @@ pragma solidity ^0.8.0;
 
 import "./IERC721.sol";
 
-contract ERC20 is IERC20 {
+contract ERC721 is IERC721 {
     uint totalTokens;
     address owner;
     mapping(address => uint) balances;
