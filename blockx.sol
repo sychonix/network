@@ -1,16 +1,33 @@
-pragma solidity ^0.8.2;
-
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol"; 
-import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol"; 
-import "@openzeppelin/contracts/access/Ownable.sol";
-
-contract sychonix is ERC20, ERC20Burnable, Ownable {
-    
-    constructor() ERC20("sychonix", "SYNX") {
-        _mint(msg.sender, 1000000 * 10 ** 18);
+{
+  "chainId": "daemon_655-18",
+  "chainName": "daemon_655-18",
+  "rpc": "",
+  "rest": "",
+  "bech32Prefix": "ethm",
+  "currencies": [
+    {
+      "displayDenom": "DMN",
+      "baseDenom": "uDMN",
+      "decimals": 18,
+      "logo": "/logos/daemon_655-18.png",
+      "type": "main"
     }
-    
-    function mint(address to, uint256 amount) public onlyOwner {
-        _mint(to, amount);
-    }
+  ],
+  "coinType": 60,
+  "faucetUrl": "https://discord.com/channels/956961633165529098/1125047988247593010",
+  "website": "",
+  "logo": "/logos/daemon_655-18.png",
+  "ibc": {
+    "hubChannel": "channel-5383",
+    "channel": "channel-0",
+    "timeout": 172800000
+  },
+  "evm": {
+    "chainId": "0x28f",
+    "rpc": ""
+  },
+  "type": "RollApp",
+  "da": "Avail",
+  "description": "",
+  "analytics": true
 }
