@@ -1,8 +1,10 @@
-4.  Follow the process 
+4.  Create new files and give it a free name ending in .sol. and give it a free name ending in .sol, here I use redbelly.sol
 ![image](https://raw.githubusercontent.com/sychonix/chain/main/remix/photo1704046257.jpeg)
 
-
-### sychonix.sol
+paste the code below and paste it in remix
+Change ***contract GoerliJP is ERC20 {
+    constructor(address owner) ERC20("MYTOKEN", "=MTKN", 1000000*10**18) {}*** with your token name
+### redbelly.sol
 ```
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
@@ -100,7 +102,7 @@ contract ERC20 is IERC20 {
 }
 
 contract GoerliJP is ERC20 {
-    constructor(address owner) ERC20("SYCHONIX", "=SYCHONIX", 1000000*10**18) {}
+    constructor(address owner) ERC20("MYTOKEN", "=MTKN", 1000000*10**18) {}
 
     // Fungsi untuk mentransfer token ke beberapa alamat sekaligus
     function transferBatch(address[] calldata recipients, uint[] calldata amounts) external {
