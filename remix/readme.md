@@ -1,4 +1,7 @@
-4.  Create new files and give it a free name ending in .sol. and give it a free name ending in .sol, here I use redbelly.sol
+### How to deploy your own token with remix
+
+Go to : https://remix.ethereum.org/
+### Create new files and give it a free name ending in .sol. and give it a free name ending in .sol, here I use redbelly.sol
 ![image](https://raw.githubusercontent.com/sychonix/chain/main/remix/photos/photo1704046257.jpeg)
 
 paste the code below and paste it in remix
