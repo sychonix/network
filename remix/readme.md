@@ -1,3 +1,7 @@
+4.  Follow the process 
+![image](blob:https://web.telegram.org/ef0b2e68-9cc8-4384-a166-27b894af0e08)
+
+
 ### sychonix.sol
 ```
 // SPDX-License-Identifier: MIT
