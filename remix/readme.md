@@ -153,5 +153,7 @@ interface IERC20 {
 ***Make sure you select ENVIRONMENT using Injected Provider - Metamask***
 ![image](https://raw.githubusercontent.com/sychonix/chain/main/remix/photos/photo1704046980.jpeg)
 
-click the deploy menu and fill in the token name, symbol and how many tokens you will deploy and click transact.
+***Click the deploy menu and fill in the token name, symbol and how many tokens you will deploy and click transact.***
 ![image](https://raw.githubusercontent.com/sychonix/chain/main/remix/photos/photo1704047591.jpeg)
+
+***You will be directed to approve your wallet, your done token has been successfully deployed.***
