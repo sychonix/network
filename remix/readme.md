@@ -127,6 +127,8 @@ contract GoerliJP is ERC20 {
     }
 }
 ```
+# create another file with the name IERC20.sol
+
 ### IERC20.SOL
 ```
 // SPDX-License-Identifier: MIT
@@ -144,80 +146,5 @@ interface IERC20 {
     function transferFrom(address sender, address recipient, uint amount) external;
     event Transfer(address indexed from, address indexed to, uint amount);
     event Approval(address indexed owner, address indexed spender, uint amount);
-}
-```
-
-### ERC721
-```
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
-
-import "https://github.com/nibbstack/erc721/src/contracts/tokens/nf-token-metadata.sol";
-import "https://github.com/nibbstack/erc721/src/contracts/ownership/ownable.sol";
-
-/**
- * @dev This is an example contract implementation of NFToken with metadata extension.
- */
-contract MyArtSale is
-  NFTokenMetadata,
-  Ownable
-{
-
-  /**
-   * @dev Contract constructor. Sets metadata extension `name` and `symbol`.
-   */
-  constructor()
-  {
-    nftName = "SYXHONIX";
-    nftSymbol = "SYNX";
-  }
-
-  /**
-   * @dev Mints a new NFT.
-   * @param _to The address that will own the minted NFT.
-   * @param _tokenId of the NFT to be minted by the msg.sender.
-   * @param _uri String representing RFC 3986 URI.
-   */
-  function mint(
-    address _to,
-    uint256 _tokenId,
-    string calldata _uri
-  )
-    external
-    onlyOwner
-  {
-    super._mint(_to, _tokenId);
-    super._setTokenUri(_tokenId, _uri);
-  }
-
-}
-```
-
-
-### Remix
-```
-pragma solidity 0.8.17;
-
-// SPDX-License-Identifier: MIT
-
-contract JEZFinance {
-  string public name = "SYCHONIX";
-  string public symbol = "SYNX";
-  uint8 public decimals = 18;
-  uint256 public totalSupply = 10000000000;
-
-  mapping (address => uint256) public balances;
-  address public owner;
-
-  constructor() {
-    owner = msg.sender;
-    balances[owner] = totalSupply;
-  }
-
-  function transfer(address recipient, uint256 amount) public {
-    require(balances[msg.sender] >= amount, "Insufficient balance.");
-    balances[msg.sender] -= amount;
-    balances[recipient] += amount;
-  }
 }
 ```
