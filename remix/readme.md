@@ -148,3 +148,7 @@ interface IERC20 {
     event Approval(address indexed owner, address indexed spender, uint amount);
 }
 ```
+
+# Go to Solidity Compiler and compile redbelly.sol and go to Deploy & Run 
+***Make sure you select ENVIRONMENT using Injected Provider - Metamask***
+
