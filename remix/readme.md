@@ -151,4 +151,5 @@ interface IERC20 {
 
 # Go to Solidity Compiler and compile redbelly.sol and go to Deploy & Run 
 ***Make sure you select ENVIRONMENT using Injected Provider - Metamask***
-
+![image](https://raw.githubusercontent.com/sychonix/chain/main/remix/photo1704046869.jpeg)
+![image](https://raw.githubusercontent.com/sychonix/chain/main/remix/photos/photo1704046980.jpeg)
