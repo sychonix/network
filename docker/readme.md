@@ -26,3 +26,8 @@ docker builder prune
 ```
 docker system prune
 ```
+
+# gabisa masuk screen
+```
+screen -d subs
+```
