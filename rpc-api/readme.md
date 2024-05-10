@@ -57,8 +57,21 @@ server {
 }
 ```
 
+# Config Test
+```
+sudo pkill nginx
+```
+```
+nginx -t 
+```
 
-
+# ssl
+```
+sudo certbot --nginx --register-unsafely-without-email
+```
+```
+sudo certbot --nginx --redirect
+```
 
 
 
