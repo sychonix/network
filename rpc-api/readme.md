@@ -1,21 +1,21 @@
 # api true
 ```
-nano $HOME/.#/config/app.toml
+nano $HOME/.initia/config/app.toml
 ```
 # rpc 
 ```
-nano $HOME/.#/config/config.toml
+nano $HOME/.initia/config/config.toml
 ```
 
 # config 
 ```
-nano /etc/nginx/sites-enabled/api-og-testnet.sychonix.xyz.conf
+sudo nano /etc/nginx/sites-enabled/api-initia-t.sychonix.xyz.conf
 ```
 
 # nano file api
 ```
 server {
-    server_name api-og-testnet.sychonix.xyz;
+    server_name api-initia-t.sychonix.xyz;
     listen 80;
     location / {
         add_header Access-Control-Allow-Origin *;
@@ -26,7 +26,7 @@ server {
         proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
         proxy_set_header   Host             $host;
 
-        proxy_pass http://0.0.0.0:2017;
+        proxy_pass http://0.0.0.0:1317;
 
     }
 }
@@ -34,13 +34,13 @@ server {
 
 # config 
 ```
-nano /etc/nginx/sites-enabled/rpc-og-testnet.sychonix.xyz.conf
+sudo nano /etc/nginx/sites-enabled/rpc-initia-t.sychonix.xyz.conf
 ```
 
 # nano file api
 ```
 server {
-    server_name rpc-og-testnet.sychonix.xyz;
+    server_name rpc-initia-t.sychonix.xyz;
     listen 80;
     location / {
         add_header Access-Control-Allow-Origin *;
@@ -51,7 +51,7 @@ server {
         proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
         proxy_set_header   Host             $host;
 
-        proxy_pass http://127.0.0.1:24656;
+        proxy_pass http://127.0.0.1:26657;
 
     }
 }
@@ -62,7 +62,7 @@ server {
 sudo pkill nginx
 ```
 ```
-nginx -t 
+sudo nginx -t 
 ```
 
 # ssl
