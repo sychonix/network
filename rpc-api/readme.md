@@ -1,10 +1,10 @@
 # api true
 ```
-nano $HOME/.initia/config/app.toml
+sudo nano $HOME/.initia/config/app.toml
 ```
 # rpc 
 ```
-nano $HOME/.initia/config/config.toml
+sudo nano $HOME/.initia/config/config.toml
 ```
 
 # config 
