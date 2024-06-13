@@ -26,7 +26,7 @@ server {
         proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
         proxy_set_header   Host             $host;
 
-        proxy_pass http://0.0.0.0:1317;
+        proxy_pass http://0.0.0.0:25717;
 
     }
 }
@@ -51,7 +51,7 @@ server {
         proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
         proxy_set_header   Host             $host;
 
-        proxy_pass http://127.0.0.1:24557;
+        proxy_pass http://127.0.0.1:25757;
 
     }
 }
