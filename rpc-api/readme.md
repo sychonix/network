@@ -1,21 +1,21 @@
 # api true
 ```
-sudo nano $HOME/.initia/config/app.toml
+sudo nano $HOME/.warden/config/app.toml
 ```
 # rpc 
 ```
-sudo nano $HOME/.initia/config/config.toml
+sudo nano $HOME/.warden/config/config.toml
 ```
 
 # config 
 ```
-sudo nano /etc/nginx/sites-enabled/api-initia-t.sychonix.xyz.conf
+sudo nano /etc/nginx/sites-enabled/api-warden-t.sychonix.com.conf
 ```
 
 # nano file api
 ```
 server {
-    server_name api-initia-t.sychonix.xyz;
+    server_name api-warden-t.sychonix.com;
     listen 80;
     location / {
         add_header Access-Control-Allow-Origin *;
@@ -26,7 +26,7 @@ server {
         proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
         proxy_set_header   Host             $host;
 
-        proxy_pass http://0.0.0.0:25717;
+        proxy_pass http://0.0.0.0:1717;
 
     }
 }
@@ -34,13 +34,13 @@ server {
 
 # config 
 ```
-sudo nano /etc/nginx/sites-enabled/rpc-initia-t.sychonix.xyz.conf
+sudo nano /etc/nginx/sites-enabled/rpc-warden-t.sychonix.com.conf
 ```
 
 # nano file api
 ```
 server {
-    server_name rpc-initia-t.sychonix.xyz;
+    server_name rpc-warden-t.sychonix.com;
     listen 80;
     location / {
         add_header Access-Control-Allow-Origin *;
@@ -51,7 +51,7 @@ server {
         proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
         proxy_set_header   Host             $host;
 
-        proxy_pass http://127.0.0.1:25757;
+        proxy_pass http://127.0.0.1:51657;
 
     }
 }
