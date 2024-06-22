@@ -61,9 +61,9 @@ export const Banner = () => {
               <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                 <span className="tagline">{date}</span>
                 <h1>{`Hi! I'm Sychonix`} </h1>
-                  <h4>I'm an independent node runner for blockchain projects.</h4>
+                  <h4>is an Independent node validator.</h4>
                   <br></br>
-                  <i><q>An enthusiastic node runner dedicated to operating nodes for blockchain projects, and eager to contribute to the advancement of blockchain technology through reliable and efficient node operations.</q></i>
+                  <i><q>Dedicated to running reliable and efficient blockchain nodes, contributing to the future of blockchain technology.</q></i>
               </div>}
             </TrackVisibility>
           </Col>
