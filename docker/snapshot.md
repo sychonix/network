@@ -1,16 +1,27 @@
 #Create Directory for Snapshot
+```
 mkdir -p /var/www/html/snapshot/warden/
+```
 
 #Install Required Packages and Create the First Snapshot
+```
 sudo apt install lz4
+```
+```
 cd $HOME/.wardend
+```
+```
 sudo systemctl stop wardend
+```
+```
 tar -cf - data | lz4 > /var/www/html/snapshot/warden/warden-snapshot-$(date +%Y%m%d).tar.lz4
+```
+```
 sudo systemctl start wardend
-
+```
 
 #Update Nginx Configuration = /etc/nginx/sites-enabled/default
-
+```
 location /snapshot/warden {
     # First attempt to serve request as file, then
     # as directory, then fall back to displaying a 404.
@@ -19,9 +30,11 @@ location /snapshot/warden {
     autoindex_format html;
     autoindex_localtime on;
 }
-
+```
 #Restart Nginx
+```
 sudo service nginx restart
+```
 
 #Verify Snapshot Access
 http://winnode.xyz/snapshot/warden/
