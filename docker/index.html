@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dark>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sychonix Snapshot Page</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Tautan ke file CSS untuk tampilan gelap -->
+    <style>
+        body {
+            background-color: #121212; /* Warna latar belakang gelap */
+            color: #FFFFFF; /* Warna teks putih */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #FFD700; /* Warna judul kuning */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #888888; /* Garis pemisah abu-abu */
+        }
+
+        th {
+            background-color: #333333; /* Warna latar belakang header tabel */
+            color: #FFFFFF; /* Warna teks header putih */
+        }
+
+        tr:nth-child(even) {
+            background-color: #444444; /* Warna latar belakang baris genap */
+        }
+
+        a {
+            color: #00BFFF; /* Warna teks link biru muda */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to Snapshot Page</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>File Name</th>
+                <th>File Size</th>
+                <th>Last Modified</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Isi tabel dengan daftar file -->
+            <tr>
+                <td><a href="crossfi/crossfi-snapshot-20240624.tar.lz4">crossfi-snapshot-20240624.tar.lz4</a></td>
+                <td>1234 KB</td>
+                <td>2024-06-24 15:30:00</td>
+            </tr>
+            <tr>
+                <td><a href="warden/warden-snapshot-20240624.tar.lz4">warden-snapshot-20240624.tar.lz4</a></td>
+                <td>5678 KB</td>
+                <td>2024-06-24 16:00:00</td>
+            </tr>
+            <!-- tambahkan entri lain sesuai kebutuhan -->
+        </tbody>
+    </table>
+
+</body>
+</html>
