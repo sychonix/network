@@ -60,16 +60,24 @@ sudo certbot --nginx --register-unsafely-without-email
 sudo certbot --nginx --redirect
 ```
 
-#Verify Snapshot Access
-http://winnode.xyz/snapshot/warden/
+https://snapshot.sychonix.com/
 
 #Install and Start Cron Service
+```
 sudo apt-get install cron
+```
+```
 sudo systemctl enable cron
+```
+```
 sudo systemctl start cron
+```
 
 #Create Snapshot Script
+```
 rm $HOME/cron.sh
+```
+```
 sudo tee $HOME/cron.sh > /dev/null << 'EOF'
 sudo systemctl stop wardend
 cd $HOME/.wardend/
@@ -77,15 +85,23 @@ rm /var/www/html/snapshot/warden/*
 tar -cf - data | lz4 > /var/www/html/snapshot/warden/warden-snapshot-$(date +%Y%m%d).tar.lz4
 sudo systemctl start wardend
 EOF
-
+```
+```
 chmod +x $HOME/cron.sh
-
-
-#Create Daily Cron Job
+```
+Buat Cron Job Harian:
+```
 crontab -l > cronjob
+```
+```
 echo "0 0 * * * /root/cron.sh" >> cronjob
+```
+```
 crontab cronjob
+```
+```
 rm cronjob
-
+```
+```
 crontab -l
-
+```
