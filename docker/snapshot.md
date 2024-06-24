@@ -20,7 +20,10 @@ tar -cf - data | lz4 > /var/www/html/snapshot/crossfi/crossfi-snapshot-$(date +%
 sudo systemctl start crossfid
 ```
 
-#Update Nginx Configuration = nano /etc/nginx/sites-enabled/snapshot.sychonix.conf
+#Update Nginx Configuration =
+```
+nano /etc/nginx/sites-enabled/snapshot.sychonix.conf
+```
 ```
 server {
     listen 80;
