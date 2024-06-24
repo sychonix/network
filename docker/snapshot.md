@@ -1,6 +1,6 @@
 #Create Directory for Snapshot
 ```
-mkdir -p /var/www/html/snapshot/warden/
+mkdir -p /var/www/html/snapshot/crossfi/
 ```
 
 #Install Required Packages and Create the First Snapshot
@@ -8,16 +8,16 @@ mkdir -p /var/www/html/snapshot/warden/
 sudo apt install lz4
 ```
 ```
-cd $HOME/.wardend
+cd $HOME/.mineplex-chain
 ```
 ```
-sudo systemctl stop wardend
+sudo systemctl stop crossfid
 ```
 ```
-tar -cf - data | lz4 > /var/www/html/snapshot/warden/warden-snapshot-$(date +%Y%m%d).tar.lz4
+tar -cf - data | lz4 > /var/www/html/snapshot/crossfi/crossfi-snapshot-$(date +%Y%m%d).tar.lz4
 ```
 ```
-sudo systemctl start wardend
+sudo systemctl start crossfid
 ```
 
 #Update Nginx Configuration = nano /etc/nginx/sites-enabled/snapshot.sychonix.conf
@@ -32,7 +32,7 @@ server {
         autoindex_format html;
         autoindex_localtime on;
 
-        root /var/www/html/snapshot/warden;
+        root /var/www/html/snapshot/;
         index index.html index.htm;
     }
 
@@ -79,11 +79,11 @@ rm $HOME/cron.sh
 ```
 ```
 sudo tee $HOME/cron.sh > /dev/null << 'EOF'
-sudo systemctl stop wardend
-cd $HOME/.wardend/
-rm /var/www/html/snapshot/warden/*
-tar -cf - data | lz4 > /var/www/html/snapshot/warden/warden-snapshot-$(date +%Y%m%d).tar.lz4
-sudo systemctl start wardend
+sudo systemctl stop crossfid
+cd $HOME/.crossfid/
+rm /var/www/html/snapshot/crossfi/*
+tar -cf - data | lz4 > /var/www/html/snapshot/crossfi/crossfi-snapshot-$(date +%Y%m%d).tar.lz4
+sudo systemctl start crossfid
 EOF
 ```
 ```
