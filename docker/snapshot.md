@@ -76,7 +76,7 @@ sudo systemctl enable cron
 sudo systemctl start cron
 ```
 
-#Create Snapshot Script
+# Create Snapshot Script
 ```
 rm $HOME/cron.sh
 ```
