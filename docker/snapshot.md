@@ -105,3 +105,29 @@ rm cronjob
 ```
 crontab -l
 ```
+
+create new snapshot node
+```
+sudo tee $HOME/example.sh > /dev/null << 'EOF'
+sudo systemctl stop binary
+cd $HOME/.binary/
+rm /var/www/html/snapshot/nodename/*
+tar -cf - data | lz4 > /var/www/html/snapshot/nodename/nodename-snapshot-$(date +%Y%m%d).tar.lz4
+sudo systemctl start binary
+EOF
+```
+```
+crontab -l > cronjob
+```
+```
+echo "0 0 * * * /root/crossfi.sh" >> cronjob
+```
+```
+crontab cronjob
+```
+```
+rm cronjob
+```
+```
+crontab -l
+```
