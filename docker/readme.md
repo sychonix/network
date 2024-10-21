@@ -1,3 +1,4 @@
+```
 echo '
 # Remove all inactive containers
 echo "Removing all inactive containers..."
@@ -21,3 +22,4 @@ docker system prune -f
 
 echo "Docker cleanup complete!"
 ' | bash
+```
