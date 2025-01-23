@@ -59,8 +59,7 @@ docker compose version
    ```
 
 4. Save and exit:
-   - Press `Ctrl+O` to save.
-   - Press `Ctrl+X` to exit.
+   - `Ctrl+x+y and enter` to save.
 
 ---
 
