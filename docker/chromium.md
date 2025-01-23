@@ -1,4 +1,3 @@
-```markdown
 # Chromium in Docker
 
 This guide provides steps to set up and run Chromium in a Docker container using `docker-compose`.
