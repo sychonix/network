@@ -146,4 +146,3 @@ docker compose down && docker compose up -d
 
 ## License
 This project uses the open-source [LinuxServer Chromium](https://hub.docker.com/r/linuxserver/chromium) image.
-```
