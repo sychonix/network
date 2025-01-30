@@ -48,8 +48,8 @@ Wants=network-online.target
 User=$USER
 WorkingDirectory=$HOME/pipenetwork
 ExecStart=$HOME/pipenetwork/pop \
-    --ram 26 \
-    --max-disk 200 \
+    --ram 8 \
+    --max-disk 100 \
     --cache-dir $HOME/pipenetwork/download_cache \
     --pubKey AsC8g7kyQhEQGXK9R7UMsh7c3Ci5RXNa1FBi3VdRxumG \
     --signup-by-referral-route 7cc1cddfe0b13e16
