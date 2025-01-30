@@ -97,6 +97,7 @@ sudo journalctl -u pipe -f
 - Ensure your server meets the minimum RAM and disk space requirements.
 - Replace the `--pubKey` value with the your solana address.
 - Keep your system updated and monitor logs regularly for any issues.
+- Recommened to backup node_info.json in `cat $HOME/pipenetwork/node_info.json`. It is linked to the IP address that registered the PoP node. It is no recoverable if lost. 
 
 If you encounter issues, please refer to the official documentation https://docs.pipe.network/devnet-2 or reach out to the support team.
 
