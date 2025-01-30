@@ -50,13 +50,14 @@ After=network.target
 Wants=network-online.target
 
 [Service]
-User=$(whoami)
-WorkingDirectory=$HOME/pipenetwork
-ExecStart=$HOME/pipenetwork/pop \\
-    --ram 8 \\
-    --max-disk 100 \\
-    --cache-dir $HOME/pipenetwork/download_cache \\
-    --pubKey your_solana_address \\
+User=root
+Group=root
+WorkingDirectory=/root/pipenetwork
+ExecStart=/root/pipenetwork/pop \
+    --ram <Your RAM size> \
+    --max-disk <Your server disk max> \
+    --cache-dir /root/pipenetwork/download_cache \
+    --pubKey <Your Solana Address> \
     --signup-by-referral-route e9c9427083d14132
 Restart=always
 RestartSec=5
