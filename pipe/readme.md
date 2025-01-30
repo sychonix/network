@@ -56,7 +56,7 @@ ExecStart=$HOME/pipenetwork/pop \
     --ram 8 \
     --max-disk 100 \
     --cache-dir $HOME/pipenetwork/download_cache \
-    --pubKey AsC8g7kyQhEQGXK9R7UMsh7c3Ci5RXNa1FBi3VdRxumG \
+    --pubKey your_solana_address \
     --signup-by-referral-route e9c9427083d14132
 Restart=always
 RestartSec=5
