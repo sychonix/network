@@ -73,8 +73,9 @@ EOF
 
 ### 6. Reload and Start the Service
 ```bash
+sudo systemctl enable pipe
 sudo systemctl daemon-reload
-sudo systemctl restart pipe
+sudo systemctl start pipe
 ```
 
 ### 7. View Service Logs
