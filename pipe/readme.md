@@ -93,6 +93,11 @@ sudo journalctl -u pipe -f
 ./pop --points-route
 ```
 
+### Use Referrals (optional)
+```bash
+./pop --signup-by-referral-route a3e0802fe7f15db3
+```
+
 ## Notes
 - Ensure your server meets the minimum RAM and disk space requirements.
 - Replace the `--pubKey` value with the your solana address.
