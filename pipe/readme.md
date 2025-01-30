@@ -53,8 +53,8 @@ Wants=network-online.target
 User=$USER
 WorkingDirectory=$HOME/pipenetwork
 ExecStart=$HOME/pipenetwork/pop
-    --ram 26
-    --max-disk 200
+    --ram 8
+    --max-disk 100
     --cache-dir $HOME/pipenetwork/download_cache
     --pubKey your_solana_address
 Restart=always
