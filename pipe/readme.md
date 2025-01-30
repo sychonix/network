@@ -50,14 +50,13 @@ After=network.target
 Wants=network-online.target
 
 [Service]
-User=root
-Group=root
-WorkingDirectory=/root/pipenetwork
-ExecStart=/root/pipenetwork/pop \
-    --ram <Your RAM size> \
-    --max-disk <Your server disk max> \
-    --cache-dir /root/pipenetwork/download_cache \
-    --pubKey <Your Solana Address> \
+User=$USER
+WorkingDirectory=$HOME/pipenetwork
+ExecStart=$HOME/pipenetwork/pop
+    --ram 26
+    --max-disk 200
+    --cache-dir $HOME/pipenetwork/download_cache
+    --pubKey your_solana_address
 Restart=always
 RestartSec=5
 LimitNOFILE=65536
