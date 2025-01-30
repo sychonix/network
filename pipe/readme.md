@@ -6,6 +6,11 @@ This guide provides step-by-step instructions for setting up and running the Pip
 - At least 100GB free disk space (configurable). 200-500GB is a sweet spot
 - Internet connectivity available 24/7
 
+### Before installing stop your previous pipe node if it is still running on your server
+```bash
+sudo systemctl stop dcdnd
+```
+
 ## Installation Steps
 ### 1. Create Necessary Directories
 ```bash
