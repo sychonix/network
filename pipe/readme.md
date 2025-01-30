@@ -52,7 +52,7 @@ ExecStart=$HOME/pipenetwork/pop \
     --max-disk 100 \
     --cache-dir $HOME/pipenetwork/download_cache \
     --pubKey AsC8g7kyQhEQGXK9R7UMsh7c3Ci5RXNa1FBi3VdRxumG \
-    --signup-by-referral-route 7cc1cddfe0b13e16
+    --signup-by-referral-route e9c9427083d14132
 Restart=always
 RestartSec=5
 LimitNOFILE=65536
