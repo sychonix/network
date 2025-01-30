@@ -93,5 +93,5 @@ sudo journalctl -u pipe -f
 - Replace the `--pubKey` value with the your solana address.
 - Keep your system updated and monitor logs regularly for any issues.
 
-If you encounter issues, please refer to the official documentation or reach out to the support team.
+If you encounter issues, please refer to the official documentation https://docs.pipe.network/devnet-2 or reach out to the support team.
 
