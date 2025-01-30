@@ -1,7 +1,7 @@
 # Pipe POP Node Setup Guide
 This guide provides step-by-step instructions for setting up and running the Pipe POP Node on your server.
 
-##System Requirements
+## System Requirements
 - Minimum 4GB RAM (configurable), more the better for higher rewards
 - At least 100GB free disk space (configurable). 200-500GB is a sweet spot
 - Internet connectivity available 24/7
