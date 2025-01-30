@@ -58,7 +58,6 @@ ExecStart=/root/pipenetwork/pop \
     --max-disk <Your server disk max> \
     --cache-dir /root/pipenetwork/download_cache \
     --pubKey <Your Solana Address> \
-    --signup-by-referral-route e9c9427083d14132
 Restart=always
 RestartSec=5
 LimitNOFILE=65536
