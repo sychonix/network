@@ -55,7 +55,3 @@ Check node status:
 ./pop --status
 ```
 
-### Check Earned Points
-```bash
-./pop --points-route
-```
