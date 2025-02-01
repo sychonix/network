@@ -48,10 +48,3 @@ Check node status:
 ```bash
 ./pop --status
 ```
-
-## Monitoring
-### Check Node Metrics
-```bash
-./pop --status
-```
-
