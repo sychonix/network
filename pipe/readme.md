@@ -25,9 +25,8 @@ cd $HOME/pipenetwork
 ```
 
 ### 3. Download the POP Node Binary
-Replace `"download_link_from_email"` with the actual link received in your email:
 ```bash
-wget "download_link_from_email"
+wget https://dl.pipecdn.app/v0.2.1/pop -O pop
 ```
 
 ### 4. Set Execution Permissions
