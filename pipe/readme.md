@@ -44,18 +44,17 @@ sudo chmod +x pop
 ```bash
 sudo tee /etc/systemd/system/pipe.service > /dev/null <<EOF
 [Unit]
-Description=Pipe POP Node Service
+Description=Pipe Network Node Service
 After=network.target
 Wants=network-online.target
 
 [Service]
 User=$USER
-WorkingDirectory=$HOME/pipenetwork
 ExecStart=$HOME/pipenetwork/pop \
-    --ram 8 \
-    --max-disk 100 \
-    --cache-dir $HOME/pipenetwork/download_cache \
-    --pubKey your_solana_address
+    --ram=$RAM \
+    --pubKey $PUBKEY \
+    --max-disk $DISK \
+    --cache-dir $HOME/pipenetwork/download_cache
 Restart=always
 RestartSec=5
 LimitNOFILE=65536
@@ -63,6 +62,7 @@ LimitNPROC=4096
 StandardOutput=journal
 StandardError=journal
 SyslogIdentifier=dcdn-node
+WorkingDirectory=$HOME/pipenetwork
 
 [Install]
 WantedBy=multi-user.target
