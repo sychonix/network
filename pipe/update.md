@@ -18,9 +18,9 @@ sudo systemctl stop pipe
 sudo rm -rf pop
 ```
 
-### 4. Download the Latest Version (0.2.2)
+### 4. Download the Latest Version (0.2.3)
 ```bash
-wget https://dl.pipecdn.app/v0.2.2/pop -O pop
+wget https://dl.pipecdn.app/v0.2.3/pop -O pop
 ```
 
 ### 5. Set Execution Permissions
