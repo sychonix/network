@@ -26,7 +26,7 @@ cd $HOME/pipenetwork
 
 ### 3. Download the POP Node Binary
 ```bash
-wget https://dl.pipecdn.app/v0.2.5/pop -O pop
+wget https://dl.pipecdn.app/v0.2.6/pop -O pop
 ```
 
 ### 4. Set Execution Permissions
