@@ -1,7 +1,7 @@
 
 ## Updating Pipe POP Node
 
-To update your Pipe POP Node to version 0.2.2, follow these steps:
+To update your Pipe POP Node to version 0.2.6, follow these steps:
 
 ### 1. Navigate to the Pipe Network Directory
 ```bash
@@ -18,9 +18,9 @@ sudo systemctl stop pipe
 sudo rm -rf pop
 ```
 
-### 4. Download the Latest Version (0.2.5)
+### 4. Download the Latest Version (0.2.6)
 ```bash
-wget https://dl.pipecdn.app/v0.2.5/pop -O pop
+wget https://dl.pipecdn.app/v0.2.6/pop -O pop
 ```
 
 ### 5. Set Execution Permissions
